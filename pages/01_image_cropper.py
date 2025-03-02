@@ -1,5 +1,6 @@
 # The library you have to use
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Some extra libraries to build the webapp and deal with images and files
 import streamlit as st
@@ -38,10 +39,10 @@ st.write("#")
 # TODO: Ex. 1.1: Get the minimum and maximum values for the vertical and horizontal ranges, so the size of the img_arr array -----
 
 min_height = 0 
-max_height = None   # TODO: Replace None with the maximum height of the image using np.shape() function
+max_height = np.shape(img_arr)[0]   # TODO: Replace None with the maximum height of the image using np.shape() function
 
 min_width = 0
-max_width = None    # TODO: Replace None with the maximum width of the image using np.shape() function   
+max_width = np.shape(img_arr)[1]     # TODO: Replace None with the maximum width of the image using np.shape() function   
 
 
 # ----- Creating the sliders to receive the user input with the dimensions to crop the image ----- 
@@ -63,8 +64,25 @@ else:
 
 # TODO: Ex. 1.3: Crop the image array img_arr using the crop_min_h, crop_max_h, crop_min_w and crop_max_w values -----
 
-crop_arr = None  # TODO: Generate the crop array into a new variable, use NumPy array slicing
+if crop_min_h > crop_max_h:
+    print("Error: The height dimensions are not correct. The minimum value surpasses the maximum value.")
+elif crop_min_w > crop_max_w:
+    print("Error: The width dimensions are not correct. The minimum value surpasses the maximum value.")
+elif crop_min_h < 0:
+    print("Error: the minimum height value has to be bigger than or equal to 0.")
+elif crop_min_w < 0:
+   print("Error: the minimum width value has to be bigger than or equal to 0.") 
+elif crop_max_h > np.shape(img_arr)[0]:
+    print("Error: the maximum height value is bigger than the total height of the image.")
+elif crop_max_w > np.shape(img_arr)[1]:
+    print("Error: the maximum width value is bigger than the total width of the image.")
 
+  # TODO: Generate the crop array into a new variable, use NumPy array slicing
+else:
+    copy_arr = img_arr.copy()
+    crop_arr = copy_arr[crop_min_h:crop_max_h, crop_min_w:crop_max_w, :]   # TODO: Generate the crop array into a new variable, use NumPy array slicing
+    
+    plt.imshow(crop_arr)
 
 # ----- Displaying the cropped image and creating a download button to download the image -----
 
