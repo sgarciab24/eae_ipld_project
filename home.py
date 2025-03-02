@@ -40,7 +40,7 @@ def home_page():
 
 
     # ----- Personal title or short description -----
-    current_role = "Previously a lab technician but now studying a Master in Big Data & Business Analytics"   # TODO: Change this
+    current_role = "Master in Big Data & Business Analytics Student"   # TODO: Change this
 
     st.html(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""")
 
