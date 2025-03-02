@@ -4,7 +4,7 @@ import base64
     
 # ----- Page configs (tab title, favicon) -----
 st.set_page_config(
-    page_title="<Your Name> Portfolio",
+    page_title="Silvia's Portfolio",
     page_icon="📊",
 )
 
@@ -16,16 +16,16 @@ def home_page():
         st.header("Introduction to Programming Languages for Data")
         st.write("###")
         st.write("***Final Project - Feb 2025***")
-        st.write("**Author:** <Your Name>")
+        st.write("**Author:** Sílvia García Bigatà")
         st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
 
     # ----- Top title -----
-    st.html("""<div style="text-align: center;"><h1 style="text-align: center;">👋 Hi! My name is ????</h1></div>""")  # TODO: Add your name
+    st.html("""<div style="text-align: center;"><h1 style="text-align: center;">👋 Hi! My name is Silvia""")  # TODO: Add your name
 
 
     # ----- Profile image file -----
-    profile_image_file_path = "profile.png"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
+    profile_image_file_path = "profile.jpg"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
 
     with open(profile_image_file_path, "rb") as img_file:
         img = "data:image/png;base64," + base64.b64encode(img_file.read()).decode()
@@ -40,7 +40,7 @@ def home_page():
 
 
     # ----- Personal title or short description -----
-    current_role = "Current Role and/or Studies or Description"   # TODO: Change this
+    current_role = "Previously a lab technician but now studying a Master in Big Data & Business Analytics"   # TODO: Change this
 
     st.html(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""")
 
@@ -52,17 +52,15 @@ def home_page():
 
     # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
     st.write("""
-    - 🧑‍💻 I am a <Current Role and/or Studies> 
+    - 🧑‍💻 I am currently a Masters Student 
 
-    - 🛩️ prev: <Previous Experience, Background or Studies>
+    - 🛩️ prev: Studied Chemistry in the UK and worked as a lab technician in Tarragona
 
-    - ❤️ <Your Passion and/or Interests>
+    - ❤️ I am passionate about travelling, music and learning more about anything related to science
 
-    - 🤖 <Your Personal Projects>
+    - 🏂 I enjoy hiking, playing padel with friends and reading 
 
-    - 🏂 <Your Hobbies>
-
-    - 📫 How to reach me: <Your Email>
+    - 📫 How to reach me: silvia.garcia3112@gmail.com
 
     - 🏠 Barcelona
     """)
